@@ -31,4 +31,7 @@ Route::post('/remove-money', [App\Http\Controllers\CategoryController::class, 'r
 Route::get('/percentages', [App\Http\Controllers\CategoryController::class, 'percentage_edit']);
 Route::post('/percentage-edit', [App\Http\Controllers\CategoryController::class, 'percentage_save']);
 
+Route::get('/category/edit/{category}', [App\Http\Controllers\CategoryController::class, 'category_edit']);
+Route::post('/category/edit/{category}', [App\Http\Controllers\CategoryController::class, 'category_update']);
+
 Route::post('/category/{category}', [App\Http\Controllers\CategoryController::class, 'delete_category']);

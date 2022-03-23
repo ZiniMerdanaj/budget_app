@@ -104,4 +104,20 @@ class CategoryController extends Controller
         $category->update();
         return redirect('/categories');
     }
+
+    public function category_edit(Request $request, $category_id)
+    {
+        return view('categories.edit_page', [
+            'category' => $this->categories->forUser($request->user())->where('id', $category_id)->first(),
+        ]);
+    }
+
+    public function category_update(Request $request, $category_id)
+    {
+        $category = $this->categories->forUser($request->user())->where('id', $category_id)->first();
+        $category->name = $request->name;
+        $category->spending_budget = $request->budget;
+        $category->update();
+        return redirect('/categories');
+    }
 }

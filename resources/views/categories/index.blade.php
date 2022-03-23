@@ -88,6 +88,10 @@
                                         <button>Delete</button>
                                     </form>
                                 </td>
+
+                                <td>
+                                    <a href="/category/edit/{{ $category->id }}">Edit</a>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
