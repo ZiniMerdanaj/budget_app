@@ -79,7 +79,7 @@ class CategoryController extends Controller
 
     public function percentage_save(Request $request)
     {
-        $categories = $this ->categories->forUser($request->user())->where('active', true);
+        $categories = $this->categories->forUser($request->user())->where('active', true);
         $sum = 0;
         foreach($categories as $category)
         {
@@ -93,6 +93,14 @@ class CategoryController extends Controller
             return Redirect::back()->withErrors("Shuma e perqindjeve duhet 100%");
         }
 
+        return redirect('/categories');
+    }
+
+    public function delete_category(Request $request, $category_id)
+    {
+        $category = $this->categories->forUser($request->user())->where('id', $category_id)->first();
+        $category->active = false;
+        $category->update();
         return redirect('/categories');
     }
 }

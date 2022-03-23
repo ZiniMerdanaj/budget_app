@@ -80,6 +80,14 @@
                                 <td class="table-text">
                                     <div>{{ $category->spending_budget }}</div>
                                 </td>
+
+                                <td>
+                                    <form action="/category/{{ $category->id }}" method="POST">
+                                        {{ csrf_field() }}
+                            
+                                        <button>Delete</button>
+                                    </form>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>

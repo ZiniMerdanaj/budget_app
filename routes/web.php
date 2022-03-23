@@ -24,10 +24,11 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::get('/categories', [App\Http\Controllers\CategoryController::class, 'index']);
 Route::get('/category', [App\Http\Controllers\CategoryController::class, 'category_form']);
 Route::post('/category', [App\Http\Controllers\CategoryController::class, 'add']);
-// Route::delete('/category/{category}', [App\Http\Controllers\CategoryController::class, 'delete']);
 
 Route::post('/add-money', [App\Http\Controllers\CategoryController::class, 'add_money']);
 Route::post('/remove-money', [App\Http\Controllers\CategoryController::class, 'remove_money']);
 
 Route::get('/percentages', [App\Http\Controllers\CategoryController::class, 'percentage_edit']);
 Route::post('/percentage-edit', [App\Http\Controllers\CategoryController::class, 'percentage_save']);
+
+Route::post('/category/{category}', [App\Http\Controllers\CategoryController::class, 'delete_category']);
