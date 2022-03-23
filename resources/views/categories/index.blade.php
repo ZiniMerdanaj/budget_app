@@ -87,4 +87,7 @@
             </div>
         </div>
     @endif
+
+    <a href="/percentages">Edit percentages</a>
+
 @endsection

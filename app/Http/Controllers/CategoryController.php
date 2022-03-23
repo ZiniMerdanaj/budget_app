@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\CategoryRepository;
+use Redirect;
 
 class CategoryController extends Controller
 {
@@ -66,6 +67,32 @@ class CategoryController extends Controller
                                 ->first();
         $category->spending_budget -= $request->remove_money;
         $category->update();
+        return redirect('/categories');
+    }
+
+    public function percentage_edit(Request $request)
+    {
+        return view('categories.edit_percentage', [
+            'categories' => $this->categories->forUser($request->user())->where('active', true),
+        ]);
+    }
+
+    public function percentage_save(Request $request)
+    {
+        $categories = $this ->categories->forUser($request->user())->where('active', true);
+        $sum = 0;
+        foreach($categories as $category)
+        {
+            $name = $category->name;
+            $category->percentage = $request->$name;
+            $category->update();
+            $sum += $category->percentage;
+        }
+
+        if($sum != 100) {
+            return Redirect::back()->withErrors("Shuma e perqindjeve duhet 100%");
+        }
+
         return redirect('/categories');
     }
 }

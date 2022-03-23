@@ -28,3 +28,6 @@ Route::post('/category', [App\Http\Controllers\CategoryController::class, 'add']
 
 Route::post('/add-money', [App\Http\Controllers\CategoryController::class, 'add_money']);
 Route::post('/remove-money', [App\Http\Controllers\CategoryController::class, 'remove_money']);
+
+Route::get('/percentages', [App\Http\Controllers\CategoryController::class, 'percentage_edit']);
+Route::post('/percentage-edit', [App\Http\Controllers\CategoryController::class, 'percentage_save']);
