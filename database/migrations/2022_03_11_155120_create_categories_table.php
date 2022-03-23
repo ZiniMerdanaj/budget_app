@@ -18,9 +18,9 @@ return new class extends Migration
             $table->integer('user_id')->index();
             $table->string('name');
             $table->timestamps();
-            $table->integer('percentage');
-            $table->integer('spending_budget');
-            $table->boolean('active');
+            $table->integer('percentage')->default(0);
+            $table->integer('spending_budget')->default(0);
+            $table->boolean('active')->default(true);
         });
     }
 
