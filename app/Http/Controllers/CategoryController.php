@@ -66,6 +66,11 @@ class CategoryController extends Controller
         $category = $categories->where('name', $request->selected_category)
                                 ->where('active', true)
                                 ->first();
+        
+        if($request->remove_money > $category->spending_budget)
+        {
+            return Redirect::back()->withErrors("Nuk ke mjaftueshm lek ne kete kategori");
+        }
         $category->spending_budget -= $request->remove_money;
         $category->update();
         return redirect('/categories');

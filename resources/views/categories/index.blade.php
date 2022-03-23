@@ -2,6 +2,10 @@
  
 @section('content')
 
+    @if($errors->any())
+        {{ implode('', $errors->all(':message')) }}
+    @endif
+
     <form action="/add-money" method="POST" class="form-horizontal">
         {{ csrf_field() }}
 
