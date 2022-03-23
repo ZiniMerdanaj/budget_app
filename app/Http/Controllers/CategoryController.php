@@ -43,9 +43,10 @@ class CategoryController extends Controller
 
         $request->user()->categories()->create([
             'name' => $request->name,
+            'spending_budget' => $request->budget,
         ]);
     
-        return redirect('/categories');
+        return redirect('/percentages');
     }
 
     public function add_money(Request $request)
