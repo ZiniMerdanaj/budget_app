@@ -44,6 +44,8 @@ class CategoryController extends Controller
         $request->user()->categories()->create([
             'name' => $request->name,
             'spending_budget' => $request->budget,
+            'percentage' => 0,
+            'active'=> 1
         ]);
     
         return redirect('/percentages');

@@ -14,7 +14,7 @@ class Category extends Model
      *
      * @var array
      */
-    protected $fillable = ['name'];
+    protected $fillable = ['name','percentage','spending_budget','active'];
 
     /**
      * Get the user that owns the task.
