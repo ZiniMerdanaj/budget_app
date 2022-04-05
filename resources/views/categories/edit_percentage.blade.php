@@ -10,15 +10,18 @@
         {{ csrf_field() }}
 
         @foreach ($categories as $category)
-        <div class="form-group">
+        <div class="form-group w-25">
+        <br>
             <label class="col-sm-3 control-label">{{ $category->name }}</label>
-            <input type="number" class="col-sm-3 control-label" name="{{ $category->name }}" value="{{ $category->percentage }}">
+            <input type="number" class="col-xs-3 form-control" name="{{ $category->name }}" value="{{ $category->percentage }}">
+            
         </div>
         @endforeach
-
+   
         <div class="form-group">
+            <br>
             <div class="col-sm-offset-3 col-sm-6">
-                <button type="submit" class="btn btn-default">
+                <button type="submit" class="btn btn-primary">
                     <i class="fa fa-plus"></i> Edit Percentage
                 </button>
             </div>
